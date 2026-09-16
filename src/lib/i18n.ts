@@ -6,11 +6,11 @@ export const RTL_LANGS = new Set(['ar', 'he', 'fa', 'ur', 'ps', 'sd', 'yi', 'dv'
 const SAVED_LANG_KEY = 'app:lang'
 const DEFAULT_LANG = 'en'
 
-const localeModules = import.meta.glob('@/locales/*.json', { eager: true }) as Record<string, { default: Record<string, string> }>
-const resources: Record<string, { translation: Record<string, string> }> = {}
-for (const [path, mod] of Object.entries(localeModules)) {
-  const code = path.split('/').pop()!.replace('.json', '')
-  resources[code] = { translation: mod.default }
+// Next.js doesn't support Vite's `import.meta.glob`. Import available
+// locale JSON files explicitly so the build typechecker stays happy.
+import en from '@/locales/en.json'
+const resources: Record<string, { translation: Record<string, string> }> = {
+  en: { translation: en as Record<string, string> },
 }
 
 const normalize = (l: string | null | undefined): string => (l || '').toLowerCase().split('-')[0]

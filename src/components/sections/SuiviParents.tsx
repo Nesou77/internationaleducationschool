@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 import { MessageCircle, BarChart2, CalendarDays, PartyPopper } from "lucide-react";
 

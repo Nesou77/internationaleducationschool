@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from 'react'
 import { ImageOff } from 'lucide-react'
 
@@ -15,7 +17,6 @@ interface SafeVideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
  * - Renders a <video> with autoPlay, muted, loop, playsInline (iOS Safari requires all four).
  * - While loading OR if the video src is empty, displays the poster image as a static fallback.
  * - On video error, falls back permanently to the poster image (or alt text icon if no poster).
- * - The Chantan post-processor injects the `src` URL after kie.ai Kling generation completes.
  *
  * Used by Opus 4.6 first builds for the hero. Other tiers should use <SafeImage>.
  */

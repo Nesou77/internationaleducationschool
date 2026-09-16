@@ -1,5 +1,7 @@
+"use client"
+
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
+import { usePathname } from 'next/navigation'
 
 /**
  * ScrollToTop — resets the scroll position on every route change.
@@ -17,10 +19,11 @@ import { useLocation } from "react-router-dom"
  *    Without Lenis it falls back to the native window scroll.
  */
 export function ScrollToTop() {
-  const { pathname, hash } = useLocation()
+  const pathname = usePathname()
 
   useEffect(() => {
     const lenis = (window as unknown as { __lenis?: { scrollTo: (t: unknown, o?: unknown) => void } }).__lenis
+    const hash = typeof window !== 'undefined' ? window.location.hash : ''
 
     if (hash) {
       const el = document.getElementById(hash.slice(1))
@@ -33,7 +36,7 @@ export function ScrollToTop() {
 
     if (lenis) lenis.scrollTo(0, { immediate: true })
     else window.scrollTo(0, 0)
-  }, [pathname, hash])
+  }, [pathname])
 
   return null
 }

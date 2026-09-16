@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle, Send, User, Hash, BookOpen, GraduationCap, ChevronDown } from "lucide-react";

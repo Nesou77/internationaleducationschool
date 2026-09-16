@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 import { Calendar, Users, Microscope, MapPin, Star } from "lucide-react";
 

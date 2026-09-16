@@ -1,3 +1,4 @@
+"use client"
 import { motion } from "framer-motion";
 import { Drama, Palette, Music, Bot, Dumbbell, Calculator } from "lucide-react";
 

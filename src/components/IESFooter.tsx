@@ -1,3 +1,5 @@
+"use client"
+
 import { Instagram, Facebook, Linkedin, Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function IESFooter() {

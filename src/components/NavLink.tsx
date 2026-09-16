@@ -1,35 +1,38 @@
-import { NavLink as RouterNavLink, NavLinkProps } from "react-router-dom"
-import { forwardRef } from "react"
-import { cn } from "@/lib/utils"
+"use client"
 
-interface NavLinkCompatProps extends Omit<NavLinkProps, "className"> {
+import { forwardRef, useEffect, useState } from "react"
+import { cn } from "../lib/utils"
+
+interface NavLinkProps {
+  to: string
   className?: string
   activeClassName?: string
-  pendingClassName?: string
+  children?: React.ReactNode
 }
 
-/**
- * NavLink helper — wraps react-router-dom's NavLink with class-name composition.
- *
- * Usage:
- *   <NavLink to="/about" className="text-muted-foreground" activeClassName="text-foreground font-semibold">
- *     About
- *   </NavLink>
- *
- * Add `activeClassName` for the style applied when the route matches.
- */
-const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
-  ({ className, activeClassName, pendingClassName, to, ...props }, ref) => (
-    <RouterNavLink
-      ref={ref}
-      to={to}
-      className={({ isActive, isPending }) =>
-        cn(className, isActive && activeClassName, isPending && pendingClassName)
+const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(({ to, className, activeClassName, children, ...props }, ref) => {
+  const [active, setActive] = useState(false)
+
+  useEffect(() => {
+    const check = () => {
+      try {
+        setActive(window.location.hash === to || window.location.pathname + window.location.hash === to)
+      } catch {
+        setActive(false)
       }
-      {...props}
-    />
-  ),
-)
+    }
+    check()
+    window.addEventListener("hashchange", check)
+    return () => window.removeEventListener("hashchange", check)
+  }, [to])
+
+  return (
+    <a ref={ref} href={to} className={cn(className, active && activeClassName)} {...props}>
+      {children}
+    </a>
+  )
+})
+
 NavLink.displayName = "NavLink"
 
 export { NavLink }
