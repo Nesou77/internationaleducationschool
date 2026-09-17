@@ -2,14 +2,77 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle, Send, User, Hash, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
-import { NIVEAUX_SCOLAIRES } from "@/data/niveaux-scolaires";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  CheckCircle,
+  Send,
+  User,
+  School,
+  BookOpen,
+  GraduationCap,
+  ChevronDown,
+} from "lucide-react";
+
+const CLASSES_ACTUELLES = [
+  "TPS",
+  "PS",
+  "MS",
+  "GS",
+  "C1",
+  "C2",
+  "C3",
+  "C4",
+  "C5",
+  "C6",
+  "1AC",
+  "2AC",
+  "3AC",
+  "TC",
+  "1BAC SEX",
+  "1BAC SM",
+  "1BAC ECO",
+  "2BAC ECO",
+  "2BAC PC",
+];
+
+const NIVEAUX_SOUHAITES = [
+  "TPS",
+  "PS",
+  "MS",
+  "GS",
+  "C1",
+  "C2",
+  "C3",
+  "C4",
+  "C5",
+  "C6",
+  "1AC",
+  "2AC",
+  "3AC",
+  "TC",
+  "1BAC SEX",
+  "1BAC SM",
+  "1BAC ECO",
+  "2BAC ECO",
+  "2BAC PC",
+];
 
 const infos = [
   { icon: Phone, label: "Téléphone", value: "+212 666 298 815" },
   { icon: Mail, label: "Email", value: "inter.educationschool@gmail.com" },
   { icon: MapPin, label: "Adresse", value: "E85 Lotissement Karaouiyine, Route Ain Chkef – Fès" },
   { icon: Clock, label: "Horaires d'accueil", value: "Lundi – Vendredi · 8h00 – 17h00" },
+];
+
+const avantages = [
+  "Réponse sous 24h",
+  "Visite de l'établissement sur rendez-vous",
+  "Dossier d'inscription disponible sur demande",
+  "Accompagnement personnalisé",
 ];
 
 type FormData = {
@@ -49,6 +112,7 @@ export default function ContactInscriptions() {
       `🎯 *Niveau souhaité 2026-2027 :* ${form.niveauSouhaite}`,
       form.etablissementActuel ? `🏫 *Établissement actuel :* ${form.etablissementActuel}` : "",
     ].filter(Boolean).join("\n");
+
     return encodeURIComponent(lines);
   };
 
@@ -65,7 +129,13 @@ export default function ContactInscriptions() {
     );
   };
 
-  const isValid = form.parentNom && form.telephone && form.enfantNom && form.classeActuelle && form.niveauSouhaite && form.etablissementActuel;
+  const isValid =
+    form.parentNom &&
+    form.telephone &&
+    form.enfantNom &&
+    form.classeActuelle &&
+    form.niveauSouhaite &&
+    form.etablissementActuel;
 
   const handleWhatsApp = () => {
     if (!isValid) return;
@@ -82,15 +152,29 @@ export default function ContactInscriptions() {
     setStatus("sent");
   };
 
-  const inputClass = "w-full bg-card border border-border/60 rounded-xl px-4 py-3 font-sans text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent/60 focus:ring-2 focus:ring-accent/10 transition-all duration-200";
-  const selectClass = `${inputClass} appearance-none cursor-pointer`;
-  const labelClass = "block font-sans text-[11px] font-semibold text-primary-foreground/50 uppercase tracking-widest mb-1.5";
+  const resetForm = () => {
+    setStatus("idle");
+    setForm({
+      parentNom: "",
+      telephone: "",
+      enfantNom: "",
+      classeActuelle: "",
+      niveauSouhaite: "",
+      etablissementActuel: "",
+    });
+  };
+
+  const inputClass =
+    "w-full bg-card border border-border/60 rounded-xl px-4 py-3 font-sans text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent/60 focus:ring-2 focus:ring-accent/10 transition-all duration-200";
+  const selectClass = `${inputClass} appearance-none cursor-pointer pr-10`;
+  const labelClass =
+    "block font-sans text-[11px] font-semibold text-muted-foreground uppercase tracking-widest mb-1.5";
+  const helperClass = "mt-2 font-sans text-[11px] leading-relaxed text-muted-foreground/75";
 
   return (
     <section id="contact" className="py-28 md:py-40 bg-primary zellige-bg">
       <div className="max-w-6xl mx-auto px-6">
-
-        {/* Header */}
+        {/* Header — keep copy unchanged */}
         <div className="reveal text-center mb-16">
           <p className="font-sans text-xs tracking-widest uppercase text-accent mb-4">
             Inscriptions 2026-2027
@@ -106,20 +190,17 @@ export default function ContactInscriptions() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
-
-          {/* LEFT — Fiche de préinscription (3 cols) */}
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+          {/* LEFT — Fiche de préinscription */}
           <motion.div
             initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-3 space-y-5"
+            className="lg:col-span-3"
           >
-            {/* Form card */}
-            <div className="bg-card rounded-2xl p-8 shadow-xl border border-border/40">
-              {/* Card header */}
-              <div className="flex items-center gap-3 mb-6">
+            <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-xl border border-border/40">
+              <div className="flex items-center gap-3 mb-5">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="font-sans text-xs font-semibold text-accent tracking-widest uppercase">
                   Fiche de préinscription 2026-2027
@@ -140,21 +221,24 @@ export default function ContactInscriptions() {
                     Notre équipe vous contactera très prochainement. À bientôt à l'IES !
                   </p>
                   <button
-                    onClick={() => { setStatus("idle"); setForm({ parentNom: "", telephone: "", enfantNom: "", classeActuelle: "", niveauSouhaite: "", etablissementActuel: "" }); }}
+                    onClick={resetForm}
                     className="mt-2 px-6 py-2.5 rounded-xl border border-border text-sm font-sans text-muted-foreground hover:text-foreground hover:border-accent/40 transition-all duration-200"
                   >
                     Nouvelle demande
                   </button>
                 </div>
               ) : (
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {/* Parent */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className={labelClass}>
-                        <span className="flex items-center gap-1.5"><User size={10} /> Nom et Prénom du parent *</span>
+                      <label className={labelClass} htmlFor="parentNom">
+                        <span className="flex items-center gap-1.5">
+                          <User size={11} /> Nom et Prénom du parent *
+                        </span>
                       </label>
                       <input
+                        id="parentNom"
                         name="parentNom"
                         value={form.parentNom}
                         onChange={handleChange}
@@ -162,11 +246,15 @@ export default function ContactInscriptions() {
                         className={inputClass}
                       />
                     </div>
+
                     <div>
-                      <label className={labelClass}>
-                        <span className="flex items-center gap-1.5"><Phone size={10} /> Numéro de téléphone *</span>
+                      <label className={labelClass} htmlFor="telephone">
+                        <span className="flex items-center gap-1.5">
+                          <Phone size={11} /> Numéro de téléphone *
+                        </span>
                       </label>
                       <input
+                        id="telephone"
                         name="telephone"
                         value={form.telephone}
                         onChange={handleChange}
@@ -177,54 +265,36 @@ export default function ContactInscriptions() {
                     </div>
                   </div>
 
-                  {/* Enfant */}
-                  <div>
-                    <label className={labelClass}>
-                      <span className="flex items-center gap-1.5"><User size={10} /> Nom et Prénom de l'enfant *</span>
-                    </label>
-                    <input
-                      name="enfantNom"
-                      value={form.enfantNom}
-                      onChange={handleChange}
-                      placeholder="Nom et Prénom de l'enfant"
-                      className={inputClass}
-                    />
-                  </div>
-
-                  {/* Niveaux */}
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  {/* Enfant + établissement actuel */}
+                  <div
+                    className="grid sm:grid-cols-2 gap-4"
+                    role="group"
+                    aria-label="Informations de l'enfant"
+                  >
                     <div>
-                      <label className={labelClass}>
-                        <span className="flex items-center gap-1.5"><BookOpen size={10} /> Classe actuelle *</span>
-                      </label>
-                      <div className="relative">
-                        <select name="classeActuelle" value={form.classeActuelle} onChange={handleChange} className={selectClass}>
-                          <option value="">Sélectionner…</option>
-                          {NIVEAUX_SCOLAIRES.map((n) => <option key={n} value={n}>{n}</option>)}
-                        </select>
-                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className={labelClass}>
-                        <span className="flex items-center gap-1.5"><GraduationCap size={10} /> Niveau souhaité 2026-2027 *</span>
-                      </label>
-                      <div className="relative">
-                        <select name="niveauSouhaite" value={form.niveauSouhaite} onChange={handleChange} className={selectClass}>
-                          <option value="">Sélectionner…</option>
-                          {NIVEAUX_SCOLAIRES.map((n) => <option key={n} value={n}>{n}</option>)}
-                        </select>
-                        <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Établissement actuel */}
-                    <div>
-                      <label className={labelClass}>
-                        <span className="flex items-center gap-1.5"><Hash size={10} /> Établissement actuel *</span>
+                      <label className={labelClass} htmlFor="enfantNom">
+                        <span className="flex items-center gap-1.5">
+                          <User size={11} /> Nom et Prénom de l'enfant *
+                        </span>
                       </label>
                       <input
+                        id="enfantNom"
+                        name="enfantNom"
+                        value={form.enfantNom}
+                        onChange={handleChange}
+                        placeholder="Nom et Prénom de l'enfant"
+                        className={inputClass}
+                      />
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="etablissementActuel">
+                        <span className="flex items-center gap-1.5">
+                          <School size={11} /> Établissement actuel *
+                        </span>
+                      </label>
+                      <input
+                        id="etablissementActuel"
                         name="etablissementActuel"
                         value={form.etablissementActuel}
                         onChange={handleChange}
@@ -232,116 +302,222 @@ export default function ContactInscriptions() {
                         className={inputClass}
                       />
                     </div>
-
-                  {/* Required note */}
-                  <p className="font-sans text-[11px] text-muted-foreground/50">* Champs obligatoires</p>
-
-                  {/* Submit buttons */}
-                  <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                    {/* WhatsApp */}
-                    <button
-                      onClick={handleWhatsApp}
-                      disabled={!isValid}
-                      className="flex items-center justify-center gap-3 py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-sans font-semibold text-sm transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-green-500/25 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
-                    >
-                      <MessageCircle size={18} />
-                      Envoyer par WhatsApp
-                    </button>
-                    {/* Email */}
-                    <button
-                      onClick={handleEmail}
-                      disabled={!isValid}
-                      className="flex items-center justify-center gap-3 py-4 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-sans font-semibold text-sm transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-accent/20 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
-                    >
-                      <Send size={16} />
-                      Envoyer par Email
-                    </button>
                   </div>
 
-                  {!isValid && (
-                    <p className="font-sans text-[11px] text-accent/70 text-center">
-                      Veuillez remplir tous les champs obligatoires pour envoyer votre demande.
-                    </p>
-                  )}
+                  {/* Classe actuelle + niveau souhaité */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className={labelClass} htmlFor="classeActuelle">
+                        <span className="flex items-center gap-1.5">
+                          <BookOpen size={11} /> Classe actuelle *
+                        </span>
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="classeActuelle"
+                          name="classeActuelle"
+                          value={form.classeActuelle}
+                          onChange={handleChange}
+                          className={selectClass}
+                          aria-describedby="classe-actuelle-help"
+                        >
+                          <option value="">Sélectionner la classe actuelle…</option>
+                          {CLASSES_ACTUELLES.map((classe) => (
+                            <option key={classe} value={classe}>{classe}</option>
+                          ))}
+                        </select>
+                        <ChevronDown
+                          size={14}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+                        />
+                      </div>
+                      <p id="classe-actuelle-help" className={helperClass}>
+                        Sélectionnez la classe suivie actuellement par votre enfant.
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className={labelClass} htmlFor="niveauSouhaite">
+                        <span className="flex items-center gap-1.5">
+                          <GraduationCap size={11} /> Niveau souhaité 2026-2027 *
+                        </span>
+                      </label>
+                      <div className="relative">
+                        <select
+                          id="niveauSouhaite"
+                          name="niveauSouhaite"
+                          value={form.niveauSouhaite}
+                          onChange={handleChange}
+                          className={selectClass}
+                          aria-describedby="niveau-souhaite-help"
+                        >
+                          <option value="">Sélectionner le niveau demandé…</option>
+                          {NIVEAUX_SOUHAITES.map((niveau) => (
+                            <option key={niveau} value={niveau}>{niveau}</option>
+                          ))}
+                        </select>
+                        <ChevronDown
+                          size={14}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+                        />
+                      </div>
+                      <p id="niveau-souhaite-help" className={helperClass}>
+                        Sélectionnez le niveau demandé pour l’année 2026-2027.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-border/60 pt-5">
+                    <div className="flex items-center justify-between gap-4 mb-4">
+                      <p className="font-sans text-[11px] text-muted-foreground/60">* Champs obligatoires</p>
+                      <p className="hidden sm:block font-sans text-[11px] text-muted-foreground/60">
+                        Choisissez votre mode d'envoi
+                      </p>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-3">
+                      <button
+                        onClick={handleWhatsApp}
+                        disabled={!isValid}
+                        className="flex items-center justify-center gap-3 py-4 rounded-xl bg-green-500 hover:bg-green-600 text-white font-sans font-semibold text-sm transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-green-500/25 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                      >
+                        <MessageCircle size={18} />
+                        Envoyer par WhatsApp
+                      </button>
+
+                      <button
+                        onClick={handleEmail}
+                        disabled={!isValid}
+                        className="flex items-center justify-center gap-3 py-4 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-sans font-semibold text-sm transition-all duration-200 hover:scale-[1.02] shadow-lg shadow-accent/20 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                      >
+                        <Send size={16} />
+                        Envoyer par Email
+                      </button>
+                    </div>
+
+                    {!isValid && (
+                      <p className="font-sans text-[11px] text-accent/70 text-center mt-3">
+                        Veuillez remplir tous les champs obligatoires pour envoyer votre demande.
+                      </p>
+                    )}
+                  </div>
                 </div>
               )}
             </div>
           </motion.div>
 
-          {/* RIGHT — Info (2 cols) */}
-          <motion.div
+          {/* RIGHT — Informations utiles */}
+          <motion.aside
             initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-2 space-y-5"
           >
-            {/* Intro text */}
-            <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6">
-              <p className="font-display text-primary-foreground text-lg mb-3 leading-snug">
-                Nous sommes impatients de vous accueillir
-              </p>
-              <p className="font-sans text-primary-foreground/55 text-sm leading-relaxed">
-                Un environnement scolaire où chaque élève est encouragé à apprendre, à s'épanouir et à construire son avenir avec confiance.
-              </p>
-            </div>
-
-            {/* Contact info card */}
-            <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 space-y-5">
-              {infos.map((info) => {
-                const Icon = info.icon;
-                return (
-                  <div key={info.label} className="flex items-start gap-4">
-                    <div className="w-9 h-9 rounded-lg bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Icon size={15} className="text-accent" />
-                    </div>
-                    <div>
-                      <p className="font-sans text-[10px] text-primary-foreground/40 uppercase tracking-widest mb-0.5">{info.label}</p>
-                      <p className="font-sans text-sm text-primary-foreground/85 font-medium leading-snug">{info.value}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Avantages */}
-            <div className="bg-accent/10 border border-accent/20 rounded-2xl p-6">
+            {/* Registration overview */}
+            <div className="bg-accent/10 border border-accent/20 rounded-2xl p-6 sm:p-7">
               <div className="flex items-center gap-2 mb-4">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="font-sans text-xs font-semibold text-accent tracking-widest uppercase">
                   Inscriptions ouvertes
                 </span>
               </div>
-              <p className="font-display text-primary-foreground text-lg mb-4">
+
+              <p className="font-display text-primary-foreground text-2xl leading-tight mb-3">
                 Année scolaire 2026-2027
               </p>
-              <ul className="space-y-2.5">
-                {[
-                  "Réponse sous 24h",
-                  "Visite de l'établissement sur rendez-vous",
-                  "Dossier d'inscription disponible sur demande",
-                  "Accompagnement personnalisé",
-                ].map((a) => (
-                  <li key={a} className="flex items-center gap-2.5">
-                    <CheckCircle size={14} className="text-accent flex-shrink-0" />
-                    <span className="font-sans text-xs text-primary-foreground/65">{a}</span>
-                  </li>
+              <p className="font-sans text-primary-foreground/60 text-sm leading-relaxed mb-6">
+                Notre équipe vous accompagne de la première prise de contact jusqu'à la constitution du dossier d'inscription.
+              </p>
+
+              <div className="space-y-3">
+                {avantages.map((avantage) => (
+                  <div key={avantage} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle size={13} className="text-accent" />
+                    </div>
+                    <span className="font-sans text-sm text-primary-foreground/70 leading-relaxed">
+                      {avantage}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
 
             {/* Values image */}
-            <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/7" }}>
-              <img
-                src="/assets/detail-valeurs.webp"
-                alt="Les valeurs de l'IES, école privée à Fès"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-lg">
+              <div className="aspect-[16/9] sm:aspect-[16/8] lg:aspect-[4/3]">
+                <img
+                  src="/assets/detail-valeurs.webp"
+                  alt="Les valeurs de l'IES, école privée à Fès"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/45 to-transparent px-5 pt-12 pb-5">
+                <p className="font-display text-primary-foreground text-lg leading-snug">
+                  Un cadre où chaque élève peut apprendre, grandir et s'épanouir.
+                </p>
+              </div>
             </div>
-          </motion.div>
+          </motion.aside>
         </div>
+
+        {/* Full-width contact help */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-8 bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 sm:p-8"
+        >
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <p className="font-sans text-xs font-semibold text-accent tracking-widest uppercase mb-2">
+              Besoin d'aide ?
+            </p>
+
+            <h3 className="font-display text-primary-foreground text-2xl mb-3">
+              Contactez directement l'IES
+            </h3>
+
+            <p className="font-sans text-sm text-primary-foreground/55 leading-relaxed">
+              Notre équipe reste disponible pour répondre à vos questions et vous accompagner
+              dans votre démarche d'inscription.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {infos.map((info) => {
+              const Icon = info.icon;
+              const isEmail = info.label === "Email";
+
+              return (
+                <div
+                  key={info.label}
+                  className="flex items-start gap-4 rounded-xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-4 sm:p-5"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
+                    <Icon size={17} className="text-accent" />
+                  </div>
+
+                  <div className="min-w-0 flex-1 pt-0.5">
+                    <p className="font-sans text-[10px] text-primary-foreground/40 uppercase tracking-widest mb-1.5">
+                      {info.label}
+                    </p>
+                    <p
+                      className={`font-sans text-sm sm:text-[15px] text-primary-foreground/85 font-medium leading-relaxed ${
+                        isEmail ? "break-all" : "break-words"
+                      }`}
+                    >
+                      {info.value}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
