@@ -19,16 +19,6 @@ export default function HeroAccueil() {
     };
   }, []);
 
-  const handleScroll = (href: string) => {
-    const el = document.querySelector(href);
-
-    if (el) {
-      el.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  };
-
   return (
     <section
       id="accueil"
@@ -361,8 +351,8 @@ export default function HeroAccueil() {
             gap-4
           "
         >
-          <button
-            onClick={() => handleScroll("#contact")}
+          <a
+            href="#contact"
             className="
               group
               px-8
@@ -383,10 +373,10 @@ export default function HeroAccueil() {
             "
           >
             S&apos;inscrire pour 2026-2027
-          </button>
+          </a>
 
-          <button
-            onClick={() => handleScroll("#pedagogie")}
+          <a
+            href="#pedagogie"
             className="
               px-8
               py-4
@@ -405,7 +395,7 @@ export default function HeroAccueil() {
             "
           >
             Découvrir le projet pédagogique
-          </button>
+          </a>
         </motion.div>
 
         {/* =====================================================
@@ -473,8 +463,8 @@ export default function HeroAccueil() {
       {/* =========================================================
           SCROLL CUE
       ========================================================== */}
-      <motion.button
-        onClick={() => handleScroll("#marquee")}
+      <motion.a
+        href="#marquee"
         initial={{
           opacity: 0,
         }}
@@ -507,7 +497,7 @@ export default function HeroAccueil() {
         </span>
 
         <ChevronDown size={20} className="animate-bounce" />
-      </motion.button>
+      </motion.a>
     </section>
   );
 }

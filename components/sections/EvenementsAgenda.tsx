@@ -58,9 +58,9 @@ export default function EvenementsAgenda() {
         >
           <div className="max-w-3xl mx-auto">
             <p className="font-sans text-xs tracking-widest uppercase text-accent mb-3">Notre vision</p>
-            <p className="font-display text-foreground text-xl md:text-2xl leading-relaxed mb-4">
+            <h3 className="font-display text-foreground text-xl md:text-2xl leading-relaxed mb-4">
               Chaque événement reflète notre engagement : une expertise pédagogique reconnue, une équipe enseignante dévouée, et une communauté éducative unie autour de chaque élève.
-            </p>
+            </h3>
             <div className="flex flex-wrap gap-3">
               <span className="px-4 py-2 rounded-lg bg-primary/10 text-primary font-sans text-xs font-medium">Expertise pédagogique</span>
               <span className="px-4 py-2 rounded-lg bg-accent/10 text-accent font-sans text-xs font-medium">Équipe engagée</span>

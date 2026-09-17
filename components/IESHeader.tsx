@@ -56,19 +56,11 @@ export default function IESHeader() {
   }, []);
 
   /* =========================================================
-     NAVIGATION
+     NAVIGATION (close menu + active state; scroll via hash links)
   ========================================================== */
   const handleNav = (href: string) => {
     setOpen(false);
     setActiveSection(href);
-
-    const el = document.querySelector(href);
-
-    if (el) {
-      el.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
   };
 
   return (
@@ -107,7 +99,8 @@ export default function IESHeader() {
           {/* =================================================
               LOGO
           ================================================== */}
-          <button
+          <a
+            href="#accueil"
             onClick={() => handleNav("#accueil")}
             className="flex items-center gap-3 group"
             aria-label="IES — Accueil"
@@ -168,7 +161,7 @@ export default function IESHeader() {
                 International Education School
               </span>
             </div>
-          </button>
+          </a>
 
           {/* =================================================
               DESKTOP NAVIGATION
@@ -178,8 +171,9 @@ export default function IESHeader() {
               const isActive = activeSection === link.href;
 
               return (
-                <button
+                <a
                   key={link.href}
+                  href={link.href}
                   onClick={() => handleNav(link.href)}
                   className={`
                     relative
@@ -217,7 +211,7 @@ export default function IESHeader() {
                       "
                     />
                   )}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -226,7 +220,8 @@ export default function IESHeader() {
               DESKTOP CTA
           ================================================== */}
           <div className="hidden lg:flex items-center gap-3">
-            <button
+            <a
+              href="#contact"
               onClick={() => handleNav("#contact")}
               className="
                 px-5
@@ -246,7 +241,7 @@ export default function IESHeader() {
               "
             >
               Inscription 2026-2027
-            </button>
+            </a>
           </div>
 
           {/* =================================================
@@ -366,8 +361,9 @@ export default function IESHeader() {
                 const isActive = activeSection === link.href;
 
                 return (
-                  <button
+                  <a
                     key={link.href}
+                    href={link.href}
                     onClick={() => handleNav(link.href)}
                     className={`
                       relative
@@ -403,7 +399,7 @@ export default function IESHeader() {
                         "
                       />
                     )}
-                  </button>
+                  </a>
                 );
               })}
             </nav>
@@ -420,7 +416,8 @@ export default function IESHeader() {
                 border-border
               "
             >
-              <button
+              <a
+                href="#contact"
                 onClick={() => handleNav("#contact")}
                 className="
                   w-full
@@ -434,10 +431,12 @@ export default function IESHeader() {
                   hover:bg-accent/90
                   transition-colors
                   duration-200
+                  block
+                  text-center
                 "
               >
                 Inscription 2026-2027
-              </button>
+              </a>
             </div>
           </div>
         </div>

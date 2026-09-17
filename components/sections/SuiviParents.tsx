@@ -87,9 +87,9 @@ export default function SuiviParents() {
           className="mt-10 p-8 rounded-2xl bg-primary border border-primary/20 flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div>
-            <p className="font-display text-primary-foreground text-xl mb-1">
+            <h3 className="font-display text-primary-foreground text-xl mb-1">
               Une école ouverte aux familles
-            </p>
+            </h3>
             <p className="font-sans text-primary-foreground/55 text-sm">
               Venez nous rencontrer lors de nos journées portes ouvertes ou prenez rendez-vous à tout moment.
             </p>

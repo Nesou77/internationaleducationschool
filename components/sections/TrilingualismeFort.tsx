@@ -113,9 +113,9 @@ export default function TrilingualismeFort() {
           className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-2xl bg-primary-foreground/5 border border-primary-foreground/10"
         >
           <div>
-            <p className="font-display text-primary-foreground text-xl mb-1">
+            <h3 className="font-display text-primary-foreground text-xl mb-1">
               Des situations de communication authentiques
-            </p>
+            </h3>
             <p className="font-sans text-primary-foreground/50 text-sm">
               Les langues sont mises en pratique dans des contextes réels, au-delà du seul apprentissage formel.
             </p>

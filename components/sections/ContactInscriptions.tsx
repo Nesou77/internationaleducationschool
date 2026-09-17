@@ -62,10 +62,30 @@ const NIVEAUX_SOUHAITES = [
 ];
 
 const infos = [
-  { icon: Phone, label: "Téléphone", value: "+212 666 298 815" },
-  { icon: Mail, label: "Email", value: "inter.educationschool@gmail.com" },
-  { icon: MapPin, label: "Adresse", value: "E85 Lotissement Karaouiyine, Route Ain Chkef – Fès" },
-  { icon: Clock, label: "Horaires d'accueil", value: "Lundi – Vendredi · 8h00 – 17h00" },
+  {
+    icon: Phone,
+    label: "Téléphone",
+    value: "+212 666 298 815",
+    href: "tel:+212666298815",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "inter.educationschool@gmail.com",
+    href: "mailto:inter.educationschool@gmail.com",
+  },
+  {
+    icon: MapPin,
+    label: "Adresse",
+    value: "International Education School, Fès, Maroc",
+    href: "https://www.google.com/maps/dir//American+School+Fez,+E%D8%8C+85+Ain+chkf,+Fes+30000%E2%80%AD/@34.0043024,-5.0892645,13z/data=!4m18!1m8!3m7!1s0xd9f8b3ff6344765:0x2a1361965218349f!2sAmerican+School+Fez!8m2!3d34.0043024!4d-5.0130468!15sChdhbWVyaWNhbiBzY2hvb2wgZmV6IHlha1oZIhdhbWVyaWNhbiBzY2hvb2wgZmV6IHlha5IBEGVkdWNhdGlvbl9jZW50ZXKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjEwVms5VlpIcGFlbFpDVlRBNVJrNVdiR3hUTTA1UlVqRmthMUZZWXhBQuABAPoBBAgAECk!16s%2Fg%2F11vr558c2m!4m8!1m0!1m5!1m1!1s0xd9f8b3ff6344765:0x2a1361965218349f!2m2!1d-5.0130468!2d34.0043024!3e3?entry=ttu&g_ep=EgoyMDI2MDkxNS4wIKXMDSoASAFQAw%3D%3D",
+    external: true,
+  },
+  {
+    icon: Clock,
+    label: "Horaires d'accueil",
+    value: "Lundi – Vendredi · 8h00 – 17h00",
+  },
 ];
 
 const avantages = [
@@ -216,7 +236,7 @@ export default function ContactInscriptions() {
                   <div className="w-16 h-16 rounded-full bg-accent/15 flex items-center justify-center">
                     <CheckCircle size={32} className="text-accent" />
                   </div>
-                  <p className="font-display text-foreground text-xl text-center">Demande envoyée !</p>
+                  <h3 className="font-display text-foreground text-xl text-center">Demande envoyée !</h3>
                   <p className="font-sans text-muted-foreground text-sm text-center max-w-xs">
                     Notre équipe vous contactera très prochainement. À bientôt à l'IES !
                   </p>
@@ -423,9 +443,9 @@ export default function ContactInscriptions() {
                 </span>
               </div>
 
-              <p className="font-display text-primary-foreground text-2xl leading-tight mb-3">
+              <h3 className="font-display text-primary-foreground text-2xl leading-tight mb-3">
                 Année scolaire 2026-2027
-              </p>
+              </h3>
               <p className="font-sans text-primary-foreground/60 text-sm leading-relaxed mb-6">
                 Notre équipe vous accompagne de la première prise de contact jusqu'à la constitution du dossier d'inscription.
               </p>
@@ -456,9 +476,9 @@ export default function ContactInscriptions() {
                 />
               </div>
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 via-primary/45 to-transparent px-5 pt-12 pb-5">
-                <p className="font-display text-primary-foreground text-lg leading-snug">
+                <h3 className="font-display text-primary-foreground text-lg leading-snug">
                   Un cadre où chaque élève peut apprendre, grandir et s'épanouir.
-                </p>
+                </h3>
               </div>
             </div>
           </motion.aside>
@@ -492,11 +512,8 @@ export default function ContactInscriptions() {
               const Icon = info.icon;
               const isEmail = info.label === "Email";
 
-              return (
-                <div
-                  key={info.label}
-                  className="flex items-start gap-4 rounded-xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-4 sm:p-5"
-                >
+              const content = (
+                <>
                   <div className="w-11 h-11 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
                     <Icon size={17} className="text-accent" />
                   </div>
@@ -505,6 +522,7 @@ export default function ContactInscriptions() {
                     <p className="font-sans text-[10px] text-primary-foreground/40 uppercase tracking-widest mb-1.5">
                       {info.label}
                     </p>
+
                     <p
                       className={`font-sans text-sm sm:text-[15px] text-primary-foreground/85 font-medium leading-relaxed ${
                         isEmail ? "break-all" : "break-words"
@@ -513,6 +531,42 @@ export default function ContactInscriptions() {
                       {info.value}
                     </p>
                   </div>
+                </>
+              );
+
+              return info.href ? (
+                <a
+                  key={info.label}
+                  href={info.href}
+                  target={info.external ? "_blank" : undefined}
+                  rel={info.external ? "noopener noreferrer" : undefined}
+                  aria-label={`${info.label} : ${info.value}`}
+                  className="
+                    group flex items-start gap-4
+                    rounded-xl border border-primary-foreground/10
+                    bg-primary-foreground/[0.04]
+                    p-4 sm:p-5
+                    hover:bg-primary-foreground/[0.08]
+                    hover:border-accent/30
+                    transition-all duration-200
+                    focus-visible:outline-none
+                    focus-visible:ring-2
+                    focus-visible:ring-accent
+                  "
+                >
+                  {content}
+                </a>
+              ) : (
+                <div
+                  key={info.label}
+                  className="
+                    flex items-start gap-4
+                    rounded-xl border border-primary-foreground/10
+                    bg-primary-foreground/[0.04]
+                    p-4 sm:p-5
+                  "
+                >
+                  {content}
                 </div>
               );
             })}

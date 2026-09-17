@@ -119,7 +119,7 @@ export default function CyclesScolaires() {
           className="mt-10 p-6 rounded-2xl bg-card border border-border/60 flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div>
-            <p className="font-display text-foreground text-lg mb-1">Un seul établissement, un parcours complet</p>
+            <h3 className="font-display text-foreground text-lg mb-1">Un seul établissement, un parcours complet</h3>
             <p className="font-sans text-muted-foreground text-sm">Pas de rupture entre les cycles — une progression harmonieuse de 3 à 18 ans.</p>
           </div>
           <div className="flex items-center gap-1 flex-shrink-0">
