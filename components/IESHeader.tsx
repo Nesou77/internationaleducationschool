@@ -61,7 +61,7 @@ export default function IESHeader() {
             <div className="w-10 h-10 flex items-center justify-center flex-shrink-0">
               <img
                 src="/assets/logo-ies.webp"
-                alt="Logo IES"
+                alt="IES International Education School Fès"
                 className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>
@@ -140,7 +140,7 @@ export default function IESHeader() {
           <div className="absolute top-0 right-0 h-full w-72 bg-card shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-6 py-5 border-b border-border">
               <div className="flex items-center gap-2.5">
-                <img src="/assets/logo-ies.webp" alt="Logo IES" className="w-8 h-8 object-contain" />
+                <img src="/assets/logo-ies.webp" alt="IES International Education School Fès" className="w-8 h-8 object-contain" />
                 <span className="font-display text-foreground text-lg">IES</span>
               </div>
               <button

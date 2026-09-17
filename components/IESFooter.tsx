@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, Facebook, Linkedin, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Instagram, Facebook, Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function IESFooter() {
   const handleNav = (href: string) => {
@@ -20,7 +20,7 @@ export default function IESFooter() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-                <img src="/assets/logo-ies.webp" alt="Logo IES" className="w-full h-full object-contain" />
+                <img src="/assets/logo-ies.webp" alt="IES International Education School Fès" className="w-full h-full object-contain" />
               </div>
               <div>
                 <div className="font-display text-xl text-primary-foreground leading-none">IES</div>
@@ -37,7 +37,6 @@ export default function IESFooter() {
               {[
                 { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/intereducationschool" },
                 { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/IESFES" },
-                { icon: Linkedin, label: "LinkedIn", href: "#" },
               ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}

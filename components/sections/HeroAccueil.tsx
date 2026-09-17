@@ -94,9 +94,9 @@ export default function HeroAccueil() {
           className="font-display text-white leading-[1.0] tracking-[-0.03em] mb-6"
           style={{ fontSize: "clamp(3.2rem, 8.5vw, 7.5rem)" }}
         >
-          L'excellence<br />
-          <span style={{ color: "hsl(20 68% 65%)" }}>au cœur</span><br />
-          de chaque parcours
+          École privée trilingue<br />
+          <span style={{ color: "hsl(20 68% 65%)" }}>à Fès</span><br />
+          de la maternelle au lycée
         </motion.h1>
 
         <motion.p
@@ -105,9 +105,8 @@ export default function HeroAccueil() {
           transition={{ duration: 0.7, delay: 0.7, ease: "easeOut" }}
           className="font-sans text-white/75 text-lg md:text-xl max-w-xl mb-10 leading-relaxed"
         >
-          Un établissement trilingue{" "}
-          <span className="text-white/95 font-medium">عربي · français · English</span>{" "}
-          — de la maternelle au lycée.
+          L'excellence au cœur de chaque parcours — un établissement trilingue{" "}
+          <span className="text-white/95 font-medium">عربي · français · English</span>.
         </motion.p>
 
         <motion.div

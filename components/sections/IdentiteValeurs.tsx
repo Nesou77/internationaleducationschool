@@ -75,7 +75,7 @@ export default function IdentiteValeurs() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
-                    <img src="/assets/logo-ies.webp" alt="Logo IES" className="w-full h-full object-contain" />
+                    <img src="/assets/logo-ies.webp" alt="IES International Education School Fès" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <div className="font-display text-2xl text-primary-foreground leading-none">IES</div>

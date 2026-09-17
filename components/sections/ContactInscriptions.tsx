@@ -334,7 +334,9 @@ export default function ContactInscriptions() {
             <div className="rounded-2xl overflow-hidden" style={{ aspectRatio: "16/7" }}>
               <img
                 src="/assets/detail-valeurs.webp"
-                alt="Les valeurs de l'IES"
+                alt="Les valeurs de l'IES, école privée à Fès"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -349,8 +351,9 @@ export default function ContactInscriptions() {
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full overflow-hidden transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110"
         title="Contactez-nous sur WhatsApp"
+        aria-label="Contacter IES sur WhatsApp"
       >
-        <img src="/assets/whatsapp-button.webp" alt="WhatsApp" className="w-full h-full object-cover rounded-full" />
+        <img src="/assets/whatsapp-button.webp" alt="" className="w-full h-full object-cover rounded-full" />
       </a>
     </section>
   );

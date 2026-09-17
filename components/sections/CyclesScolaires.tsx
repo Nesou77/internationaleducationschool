@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 const cycles = [
   {
     img: "/assets/cycle-maternelle.webp",
+    alt: "Classe de maternelle Montessori à IES Fès",
     titre: "Maternelle",
     ages: "3 – 6 ans",
     tag: "Montessori",
@@ -13,6 +14,7 @@ const cycles = [
   },
   {
     img: "/assets/cycle-primaire.webp",
+    alt: "Élèves du primaire à l'école trilingue IES Fès",
     titre: "Primaire",
     ages: "6 – 11 ans",
     tag: "Fondamentaux",
@@ -21,6 +23,7 @@ const cycles = [
   },
   {
     img: "/assets/cycle-college.webp",
+    alt: "Élèves du collège à l'école privée IES Fès",
     titre: "Collège",
     ages: "11 – 15 ans",
     tag: "Esprit critique",
@@ -29,6 +32,7 @@ const cycles = [
   },
   {
     img: "/assets/cycle-lycee.webp",
+    alt: "Élèves du lycée privé IES à Fès",
     titre: "Lycée",
     ages: "15 – 18 ans",
     tag: "Baccalauréat",
@@ -72,7 +76,9 @@ export default function CyclesScolaires() {
               <div className="absolute inset-0 overflow-hidden">
                 <img
                   src={c.img}
-                  alt={c.titre}
+                  alt={c.alt}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
               </div>
