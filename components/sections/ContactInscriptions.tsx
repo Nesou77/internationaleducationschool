@@ -3,28 +3,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle, Send, User, Hash, BookOpen, GraduationCap, ChevronDown } from "lucide-react";
+import { NIVEAUX_SCOLAIRES } from "@/data/niveaux-scolaires";
 
 const infos = [
   { icon: Phone, label: "Téléphone", value: "+212 666 298 815" },
   { icon: Mail, label: "Email", value: "inter.educationschool@gmail.com" },
   { icon: MapPin, label: "Adresse", value: "E85 Lotissement Karaouiyine, Route Ain Chkef – Fès" },
   { icon: Clock, label: "Horaires d'accueil", value: "Lundi – Vendredi · 8h00 – 17h00" },
-];
-
-const niveauxActuels = [
-  "TPS", "PS", "MS", "GS",
-  "C1", "C2", "C3", "C4", "C5", "C6",
-  "1AC", "2AC", "3AC",
-  "TC", "1BAC SEX", "1BAC SM", "1BAC ECO",
-  "2BAC ECO", "2BAC PC",
-];
-
-const niveauxSouhaites = [
-  "TPS", "PS", "MS", "GS",
-  "C1", "C2", "C3", "C4", "C5", "C6",
-  "1AC", "2AC", "3AC",
-  "TC", "1BAC SEX", "1BAC SM", "1BAC ECO",
-  "2BAC ECO", "2BAC PC",
 ];
 
 type FormData = {
@@ -215,7 +200,7 @@ export default function ContactInscriptions() {
                       <div className="relative">
                         <select name="classeActuelle" value={form.classeActuelle} onChange={handleChange} className={selectClass}>
                           <option value="">Sélectionner…</option>
-                          {niveauxActuels.map((n) => <option key={n} value={n}>{n}</option>)}
+                          {NIVEAUX_SCOLAIRES.map((n) => <option key={n} value={n}>{n}</option>)}
                         </select>
                         <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                       </div>
@@ -227,7 +212,7 @@ export default function ContactInscriptions() {
                       <div className="relative">
                         <select name="niveauSouhaite" value={form.niveauSouhaite} onChange={handleChange} className={selectClass}>
                           <option value="">Sélectionner…</option>
-                          {niveauxSouhaites.map((n) => <option key={n} value={n}>{n}</option>)}
+                          {NIVEAUX_SCOLAIRES.map((n) => <option key={n} value={n}>{n}</option>)}
                         </select>
                         <ChevronDown size={14} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                       </div>

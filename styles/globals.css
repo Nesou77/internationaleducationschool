@@ -24,8 +24,8 @@
     --input: 222 12% 88%;
     --ring: 222 25% 14%;
     --radius: 0.75rem;
-    --font-display: 'Libre Caslon Display', Georgia, serif;
-    --font-sans: 'Karla', system-ui, sans-serif;
+    --font-display: var(--font-libre-caslon), Georgia, serif;
+    --font-sans: var(--font-karla), system-ui, sans-serif;
   }
 
   * {
