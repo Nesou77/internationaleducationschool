@@ -198,4 +198,46 @@
     @apply px-7 py-3.5 rounded-xl border border-border text-foreground font-sans font-medium text-sm;
     @apply hover:bg-muted hover:border-accent/30 transition-all duration-300;
   }
+
+  /* ── WhatsApp floating CTA — soft expanding ring pulse ──
+     No `position: relative` here: this class and Tailwind's `.fixed`
+     utility (already on the element) have equal specificity, and this
+     rule compiles after `.fixed` in the cascade — it would silently
+     override `position: fixed` back to `relative`. `fixed` already
+     establishes the containing block the pseudo-elements need. */
+  .whatsapp-cta::before,
+  .whatsapp-cta::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #25D366;
+    opacity: 0.55;
+    animation: whatsapp-pulse 2.4s ease-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .whatsapp-cta::after {
+    animation-delay: 1.2s;
+  }
+
+  @keyframes whatsapp-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.55;
+    }
+    100% {
+      transform: scale(1.7);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-cta::before,
+    .whatsapp-cta::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
 }

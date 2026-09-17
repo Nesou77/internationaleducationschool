@@ -343,18 +343,6 @@ export default function ContactInscriptions() {
           </motion.div>
         </div>
       </div>
-
-      {/* WhatsApp floating button */}
-      <a
-        href="https://wa.me/212666298815"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full overflow-hidden transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-110"
-        title="Contactez-nous sur WhatsApp"
-        aria-label="Contacter IES sur WhatsApp"
-      >
-        <img src="/assets/whatsapp-button.webp" alt="" className="w-full h-full object-cover rounded-full" />
-      </a>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import { Karla, Libre_Caslon_Display } from 'next/font/google'
 import Script from 'next/script'
+import WhatsAppCTA from '@/components/WhatsAppCTA'
 import '../styles/globals.css'
 
 const karla = Karla({
@@ -76,6 +77,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </>
         )}
         {children}
+        <WhatsAppCTA />
       </body>
     </html>
   )
