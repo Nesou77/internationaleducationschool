@@ -74,7 +74,8 @@ export default function HeroAccueil() {
           >
             <motion.img
               src="/assets/logo-ies-full.webp"
-              alt="Logo IES — International Education School Privé Fès"
+              alt=""
+              aria-hidden="true"
               initial={{
                 opacity: 0,
                 scale: 0.85,
