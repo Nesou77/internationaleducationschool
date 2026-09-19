@@ -1,5 +1,6 @@
 "use client"
-import { motion } from "framer-motion";
+import Image from "next/image";
+import { m as motion } from "framer-motion";
 import { Heart, Shield, Lightbulb, Users, Globe, Star } from "lucide-react";
 
 const valeurs = [
@@ -75,11 +76,11 @@ export default function IdentiteValeurs() {
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
-                    <img src="/assets/logo-ies.webp" alt="IES International Education School Fès" className="w-full h-full object-contain" />
+                    <Image src="/assets/logo-ies.webp" alt="IES International Education School Fès" width={64} height={64} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <div className="font-display text-2xl text-primary-foreground leading-none">IES</div>
-                    <div className="font-sans text-xs text-primary-foreground/50 tracking-widest uppercase mt-1">
+                    <div className="font-sans text-xs text-primary-foreground/70 tracking-widest uppercase mt-1">
                       International Education School
                     </div>
                   </div>
@@ -89,7 +90,7 @@ export default function IdentiteValeurs() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {["Trilingue", "Maternelle → Lycée", "2026-2027", "Fès"].map((tag) => (
-                    <span key={tag} className="px-3 py-1 rounded-full bg-primary-foreground/10 text-primary-foreground/60 text-xs font-sans">
+                    <span key={tag} className="px-3 py-1 rounded-full bg-primary-foreground/10 text-primary-foreground/70 text-xs font-sans">
                       {tag}
                     </span>
                   ))}

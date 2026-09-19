@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { MessageCircle, BarChart2, CalendarDays, PartyPopper } from "lucide-react";
 
 const blocs = [
@@ -90,7 +90,7 @@ export default function SuiviParents() {
             <h3 className="font-display text-primary-foreground text-xl mb-1">
               Une école ouverte aux familles
             </h3>
-            <p className="font-sans text-primary-foreground/55 text-sm">
+            <p className="font-sans text-primary-foreground/70 text-sm">
               Venez nous rencontrer lors de nos journées portes ouvertes ou prenez rendez-vous à tout moment.
             </p>
           </div>

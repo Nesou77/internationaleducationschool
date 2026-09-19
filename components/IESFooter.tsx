@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Instagram,
   Facebook,
@@ -75,8 +76,10 @@ export default function IESFooter() {
               className={`inline-flex items-center gap-3 mb-5 rounded-lg ${focusClasses}`}
             >
               <div className="w-14 h-14 md:w-[60px] md:h-[60px] flex items-center justify-center flex-shrink-0">
-                <img
+                <Image
                   src="/assets/logo-ies.webp"
+                width={64}
+                height={64}
                   alt="IES International Education School Fès"
                   className="w-full h-full object-contain"
                 />
@@ -87,13 +90,13 @@ export default function IESFooter() {
                   IES
                 </div>
 
-                <div className="font-sans text-[10px] tracking-widest uppercase text-primary-foreground/50 mt-1.5 leading-relaxed">
+                <div className="font-sans text-[10px] tracking-widest uppercase text-primary-foreground/70 mt-1.5 leading-relaxed">
                   International Education School
                 </div>
               </div>
             </a>
 
-            <p className="font-sans text-sm text-primary-foreground/60 leading-relaxed mb-6 max-w-sm">
+            <p className="font-sans text-sm text-primary-foreground/70 leading-relaxed mb-6 max-w-sm">
               Un établissement trilingue arabe · français · anglais, de
               la maternelle au lycée. Excellence, bienveillance et
               ouverture sur le monde.
@@ -113,7 +116,7 @@ export default function IESFooter() {
                     bg-primary-foreground/[0.08]
                     border border-primary-foreground/10
                     flex items-center justify-center
-                    text-primary-foreground/65
+                    text-primary-foreground/70
                     hover:text-primary-foreground
                     hover:bg-accent/25
                     hover:border-accent/40
@@ -143,7 +146,7 @@ export default function IESFooter() {
                       className={`
                         w-fit
                         font-sans text-sm
-                        text-primary-foreground/55
+                        text-primary-foreground/70
                         hover:text-primary-foreground
                         hover:translate-x-1
                         transition-all duration-200
@@ -196,11 +199,11 @@ export default function IESFooter() {
                         </div>
 
                         <div>
-                          <span className="block font-sans text-[10px] uppercase tracking-wider text-primary-foreground/40 mb-0.5">
+                          <span className="block font-sans text-[10px] uppercase tracking-wider text-primary-foreground/70 mb-0.5">
                             {label}
                           </span>
 
-                          <span className="font-sans text-sm text-primary-foreground/65 group-hover:text-primary-foreground transition-colors leading-snug break-words">
+                          <span className="font-sans text-sm text-primary-foreground/70 group-hover:text-primary-foreground transition-colors leading-snug break-words">
                             {value}
                           </span>
                         </div>
@@ -215,11 +218,11 @@ export default function IESFooter() {
                         </div>
 
                         <div>
-                          <span className="block font-sans text-[10px] uppercase tracking-wider text-primary-foreground/40 mb-0.5">
+                          <span className="block font-sans text-[10px] uppercase tracking-wider text-primary-foreground/70 mb-0.5">
                             {label}
                           </span>
 
-                          <span className="font-sans text-sm text-primary-foreground/65 leading-snug">
+                          <span className="font-sans text-sm text-primary-foreground/70 leading-snug">
                             {value}
                           </span>
                         </div>
@@ -253,7 +256,7 @@ export default function IESFooter() {
                 Année scolaire 2026–2027
               </h4>
 
-              <p className="font-sans text-xs text-primary-foreground/60 leading-relaxed">
+              <p className="font-sans text-xs text-primary-foreground/70 leading-relaxed">
                 Dossiers disponibles sur demande. Contactez-nous pour
                 organiser une visite de l'établissement.
               </p>
@@ -264,17 +267,17 @@ export default function IESFooter() {
         {/* Bottom bar */}
         <div className="border-t border-primary-foreground/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex flex-col gap-1.5">
-            <p className="font-sans text-xs text-primary-foreground/50 leading-relaxed">
+            <p className="font-sans text-xs text-primary-foreground/70 leading-relaxed">
               © 2026 IES — International Education School · Fès, Maroc. Tous droits réservés.
             </p>
 
-            <p className="font-sans text-[11px] text-primary-foreground/35 leading-relaxed">
+            <p className="font-sans text-[11px] text-primary-foreground/70 leading-relaxed">
               Site conçu et développé par{" "}
               <a
                 href="https://h24service.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/55 hover:text-accent transition-colors"
+                className="text-primary-foreground/70 hover:text-accent transition-colors"
               >
                 H24 Service
               </a>
@@ -283,14 +286,14 @@ export default function IESFooter() {
                 href="https://www.sounez.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary-foreground/55 hover:text-accent transition-colors"
+                className="text-primary-foreground/70 hover:text-accent transition-colors"
               >
                 Sounez
               </a>
             </p>
           </div>
 
-          <p className="font-sans text-xs text-primary-foreground/40 tracking-widest whitespace-nowrap">
+          <p className="font-sans text-xs text-primary-foreground/70 tracking-widest whitespace-nowrap">
             Excellence · التميز · Excellence
           </p>
         </div>

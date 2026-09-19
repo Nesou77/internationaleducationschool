@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 
 const langues = [
   {
@@ -45,7 +45,7 @@ export default function TrilingualismeFort() {
           >
             Trois langues, un seul monde.
           </h2>
-          <p className="font-sans text-primary-foreground/55 max-w-xl mx-auto text-base leading-relaxed">
+          <p className="font-sans text-primary-foreground/70 max-w-xl mx-auto text-base leading-relaxed">
             Le trilinguisme est un axe fondateur de l'IES — une ouverture sur le monde, une richesse pour toute la vie.
           </p>
         </div>
@@ -95,7 +95,7 @@ export default function TrilingualismeFort() {
               {/* Description */}
               <p
                 className={`font-sans text-sm leading-relaxed ${
-                  l.accent ? "text-accent-foreground/80" : "text-primary-foreground/60"
+                  l.accent ? "text-accent-foreground/80" : "text-primary-foreground/70"
                 }`}
               >
                 {l.desc}
@@ -116,7 +116,7 @@ export default function TrilingualismeFort() {
             <h3 className="font-display text-primary-foreground text-xl mb-1">
               Des situations de communication authentiques
             </h3>
-            <p className="font-sans text-primary-foreground/50 text-sm">
+            <p className="font-sans text-primary-foreground/70 text-sm">
               Les langues sont mises en pratique dans des contextes réels, au-delà du seul apprentissage formel.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function TrilingualismeFort() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center font-display text-primary-foreground/25 tracking-widest text-sm mt-12"
+          className="text-center font-display text-primary-foreground/70 tracking-widest text-sm mt-12"
         >
           Excellence · التميز · Excellence
         </motion.p>

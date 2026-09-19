@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -205,7 +205,7 @@ export default function ContactInscriptions() {
           >
             Rejoignez la communauté IES
           </h2>
-          <p className="font-sans text-primary-foreground/55 max-w-xl mx-auto leading-relaxed">
+          <p className="font-sans text-primary-foreground/70 max-w-xl mx-auto leading-relaxed">
             Remplissez la fiche ci-dessous — votre demande nous parviendra directement par WhatsApp ou par email.
           </p>
         </div>
@@ -446,7 +446,7 @@ export default function ContactInscriptions() {
               <h3 className="font-display text-primary-foreground text-2xl leading-tight mb-3">
                 Année scolaire 2026-2027
               </h3>
-              <p className="font-sans text-primary-foreground/60 text-sm leading-relaxed mb-6">
+              <p className="font-sans text-primary-foreground/70 text-sm leading-relaxed mb-6">
                 Notre équipe vous accompagne de la première prise de contact jusqu'à la constitution du dossier d'inscription.
               </p>
 
@@ -501,7 +501,7 @@ export default function ContactInscriptions() {
               Contactez directement l'IES
             </h3>
 
-            <p className="font-sans text-sm text-primary-foreground/55 leading-relaxed">
+            <p className="font-sans text-sm text-primary-foreground/70 leading-relaxed">
               Notre équipe reste disponible pour répondre à vos questions et vous accompagner
               dans votre démarche d'inscription.
             </p>
@@ -519,7 +519,7 @@ export default function ContactInscriptions() {
                   </div>
 
                   <div className="min-w-0 flex-1 pt-0.5">
-                    <p className="font-sans text-[10px] text-primary-foreground/40 uppercase tracking-widest mb-1.5">
+                    <p className="font-sans text-[10px] text-primary-foreground/70 uppercase tracking-widest mb-1.5">
                       {info.label}
                     </p>
 

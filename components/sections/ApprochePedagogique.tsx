@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Zap, FolderOpen, Monitor } from "lucide-react";
 
 const blocs = [
@@ -64,10 +64,10 @@ export default function ApprochePedagogique() {
                   <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
                     <Icon size={22} className="text-accent" />
                   </div>
-                  <span className="font-sans text-[10px] tracking-widest uppercase text-primary-foreground/40 text-center mb-6">{b.tag}</span>
+                  <span className="font-sans text-[10px] tracking-widest uppercase text-primary-foreground/70 text-center mb-6">{b.tag}</span>
                   <div className="text-center">
                     <div className="font-display text-2xl text-accent leading-none mb-1">{b.stat.val}</div>
-                    <div className="font-sans text-xs text-primary-foreground/50">{b.stat.label}</div>
+                    <div className="font-sans text-xs text-primary-foreground/70">{b.stat.label}</div>
                   </div>
                 </div>
 

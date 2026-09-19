@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m as motion } from "framer-motion";
 import {
   ChevronLeft,
   ChevronRight,
@@ -506,7 +506,7 @@ export default function GalerieLocaux() {
                   {String(lightbox + 1).padStart(2, "0")}
                 </span>
 
-                <span className="mx-2 text-white/30">/</span>
+                <span className="mx-2 text-white/70">/</span>
 
                 {String(photos.length).padStart(2, "0")}
               </div>
@@ -659,7 +659,7 @@ export default function GalerieLocaux() {
                 className="
                   font-sans
                   text-sm
-                  text-white/65
+                  text-white/70
                   text-center
                   max-w-xl
                   px-12

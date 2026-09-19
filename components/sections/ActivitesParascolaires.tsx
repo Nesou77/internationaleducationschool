@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Drama, Palette, Music, Bot, Dumbbell, Calculator } from "lucide-react";
 
 const activites = [

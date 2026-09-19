@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -115,8 +116,10 @@ export default function IESHeader() {
                 flex-shrink-0
               "
             >
-              <img
+              <Image
                 src="/assets/logo-ies.webp"
+                width={64}
+                height={64}
                 alt="IES International Education School Fès"
                 className="
                   w-full
@@ -313,8 +316,10 @@ export default function IESHeader() {
               "
             >
               <div className="flex items-center gap-2.5">
-                <img
+                <Image
                   src="/assets/logo-ies.webp"
+                width={64}
+                height={64}
                   alt="IES International Education School Fès"
                   className="
                     w-8

@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const cycles = [
@@ -96,7 +96,7 @@ export default function CyclesScolaires() {
               {/* Content */}
               <div className="absolute inset-0 flex flex-col justify-end p-6">
                 <h3 className="font-display text-white text-2xl leading-tight mb-0.5">{c.titre}</h3>
-                <p className="font-sans text-white/60 text-xs mb-4 tracking-wide">{c.ages}</p>
+                <p className="font-sans text-white/70 text-xs mb-4 tracking-wide">{c.ages}</p>
                 <ul className="space-y-1.5">
                   {c.points.map((p) => (
                     <li key={p} className="flex items-start gap-2 text-white/85 text-xs font-sans">

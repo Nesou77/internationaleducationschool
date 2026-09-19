@@ -1,5 +1,5 @@
 "use client"
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Calendar, Users, Microscope, MapPin, Star } from "lucide-react";
 
 const evenements = [
@@ -88,6 +88,8 @@ export default function EvenementsAgenda() {
                     <img
                       src={e.img}
                       alt={e.titre}
+                      loading="lazy"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

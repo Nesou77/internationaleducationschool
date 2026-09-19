@@ -3,6 +3,7 @@ import { Karla, Libre_Caslon_Display } from 'next/font/google'
 import Script from 'next/script'
 
 import WhatsAppCTA from '@/components/WhatsAppCTA'
+import MotionProvider from '@/components/MotionProvider'
 import '../styles/globals.css'
 
 /* -------------------------------------------------------------------------- */
@@ -230,7 +231,7 @@ export default function RootLayout({
         {/* Application                                                     */}
         {/* --------------------------------------------------------------- */}
 
-        {children}
+        <MotionProvider>{children}</MotionProvider>
 
         <WhatsAppCTA />
       </body>
